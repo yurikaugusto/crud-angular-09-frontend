@@ -1,0 +1,5 @@
+ng new frontend --minimal: serve para criar o projeto ser os arquivos de teste.
+
+tsconfig.json == configura a conpilação dos arquivos typescript
+angular.json == realiza configurações no projeto
+main.ts == carrega o módulo principal da aplicação, que por sua vez terá o component com template html a ser exibido
