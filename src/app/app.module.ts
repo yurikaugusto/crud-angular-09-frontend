@@ -22,6 +22,9 @@ import { RedDirective } from './directives/red.directive';
 import { HomeComponent } from './views/home/home.component';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
 import { ProductReadComponent } from './components/product/product-read/product-read.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [//components, directives and pipes
@@ -34,7 +37,7 @@ import { ProductReadComponent } from './components/product/product-read/product-
     RedDirective,
     ForDirective,
     ProductCreateComponent,
-    ProductReadComponent
+    ProductReadComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -49,7 +52,10 @@ import { ProductReadComponent } from './components/product/product-read/product-
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
