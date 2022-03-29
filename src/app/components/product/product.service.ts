@@ -1,12 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
+import { Product } from './product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private snackBar: MatSnackBar) { }
+  baseURL: string = 'http://localhost:3001/products';
+
+  constructor(
+    private snackBar: MatSnackBar,
+    private http: HttpClient
+  ) { }
 
   showMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
@@ -14,5 +22,14 @@ export class ProductService {
       horizontalPosition: "right",
       verticalPosition: "top"
     });
+  }
+
+  create(product: Product): Observable<Product> {
+    // post<Product> essa instrução tipa o retorno recebido nos generics do Observable
+    return this.http.post<Product>(this.baseURL, product);
+  }
+
+  read(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.baseURL);
   }
 }
